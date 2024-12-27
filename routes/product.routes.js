@@ -23,7 +23,7 @@ router.get('/', verifyToken, productController.getAllProducts); //Get all produc
 
 router.get('/:id', verifyToken, productController.getProductById); //Get one product by id
 
-router.patch('/:id', verifyToken, productController.updateProduct); //Update a product
+router.patch('/:id', verifyToken, productImage, productController.updateProduct); //Update a product
 
 router.delete('/:id', verifyToken, productController.deleteProduct); //Delete a product
 

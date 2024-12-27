@@ -48,6 +48,7 @@ async function getProductById(req, res) {
 
         const product = await productService.getProductById(id);
 
+
         if (!product) {
             return res.status(404).json({ error: true, message: "Product not found" });
         }
@@ -64,12 +65,18 @@ async function updateProduct(req, res) {
     try {
         const { id } = req.params;
         const { productName, productCategory, productPrice } = req.body;
+        const productImage = req.file?.path;
+
+        console.log(productName);
 
         const updatedProduct = await productService.updateProduct(id, {
             productName,
             productCategory,
-            productPrice
+            productPrice,
+            productImage
         });
+
+        console.log(updatedProduct);
 
         if (!updatedProduct) {
             return res.status(404).json({ error: true, message: "Product not found" });
