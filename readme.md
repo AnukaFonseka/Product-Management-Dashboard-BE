@@ -76,14 +76,12 @@ DELETE /products/:id - Delete a product
 
 ## File Structure
 ```bash
-src/
-├── config/            # Configuration files (DB connection, environment setup)
-├── controllers/       # Business logic for handling requests
-├── middleware/        # Middleware for authentication and file uploads
-├── models/            # Mongoose models for MongoDB
-├── routes/            # API route definitions
-├── utils/             # Utility functions
-├── server.js          # Application entry point
+├── config/         # Configuration files (e.g., database, environment settings)
+├── controllers/    # API request handlers
+├── middleware/     # Custom middlewares like authentication
+├── routes/         # API route definitions
+├── services/       # Business logic for handling requests
+└── index.js        # Main entry point for the backend server
 ```
 
 ## Troubleshooting
