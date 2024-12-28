@@ -27,7 +27,7 @@ Follow these steps to set up the backend locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AnukaFonseka/Product-Management-Dashboard-BE.git
 ```
 
 ### 2. Navigate to the Project Directory
