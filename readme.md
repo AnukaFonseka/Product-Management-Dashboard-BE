@@ -7,7 +7,7 @@ This is the backend of the application, built with Node.js and Express. It provi
 - Token-based user authentication.
 - CRUD operations for products.
 - Middleware for file uploads with Cloudinary integration.
-- Secure environment variable configuration.
+- Secure API endpoints with jwt authentication.
 
 ---
 
@@ -17,7 +17,6 @@ Before running the application, ensure you have the following installed:
 
 - **Node.js** (v16 or later) - [Download Node.js](https://nodejs.org/)
 - **npm** (Node Package Manager) or **yarn** (optional)
-- **MongoDB** (local or cloud instance)
 
 ---
 
