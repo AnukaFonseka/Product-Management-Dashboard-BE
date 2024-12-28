@@ -1,4 +1,4 @@
-# Backend Application
+# Product-Management-Dashboard - Backend
 
 This is the backend of the application, built with Node.js and Express. It provides RESTful APIs for user authentication, product management, and image uploads using Cloudinary.
 
