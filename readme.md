@@ -63,13 +63,13 @@ The backend will be accessible at http://localhost:3000.
 ## API Endpoints
 
 ### Authentication
-POST /auth/login - User login
+POST /auth/login - User login <br />
 POST /auth/register - User registration
 
 ### Products
-GET /products - Fetch all products
-POST /products - Add a new product
-PATCH /products/:id - Update a product
+GET /products - Fetch all products <br />
+POST /products - Add a new product <br />
+PATCH /products/:id - Update a product <br />
 DELETE /products/:id - Delete a product
 
 ## File Structure
