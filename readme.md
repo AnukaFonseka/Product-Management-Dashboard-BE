@@ -101,9 +101,6 @@ DELETE /products/:id - Delete a product
  - Ensure your Cloudinary account has sufficient storage.
  
 
-## License
-This project is licensed under the MIT License.
-
 ## Author
 Anuka Fonseka <br/>
 [GitHub Profile](https://github.com/AnukaFonseka)
