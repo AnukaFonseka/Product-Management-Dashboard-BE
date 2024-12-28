@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const productService = require("../services/product.service");
+const cloudinary = require('cloudinary').v2;
 
 //Create new product
 async function createProduct(req, res) {
@@ -9,11 +10,12 @@ async function createProduct(req, res) {
             return res.status(400).json({error: true, message: errors.array()});
         }
 
-        const {productName, productCategory, productPrice} = req.body;
+        const {productName, productDescription, productCategory, productPrice} = req.body;
         const productImage = req.file?.path;
 
         await productService.createProduct({
             productName,
+            productDescription,
             productCategory,
             productPrice,
             productImage
@@ -65,9 +67,21 @@ async function updateProduct(req, res) {
     try {
         const { id } = req.params;
         const { productName, productCategory, productPrice } = req.body;
-        const productImage = req.file?.path;
+        let  productImage = req.file?.path;
 
-        console.log(productName);
+        if (productImage) {
+            const existingProduct = await productService.getProductById(id);
+            const oldImageUrl = existingProduct.productImage;
+
+            if (oldImageUrl) {
+               
+                const publicId = oldImageUrl.split('/').slice(-2, -1)[0]; 
+                await cloudinary.uploader.destroy(publicId); 
+            }
+        } else {
+            const existingProduct = await productService.getProductById(id);
+            productImage = existingProduct.productImage; 
+        }
 
         const updatedProduct = await productService.updateProduct(id, {
             productName,
@@ -75,8 +89,6 @@ async function updateProduct(req, res) {
             productPrice,
             productImage
         });
-
-        console.log(updatedProduct);
 
         if (!updatedProduct) {
             return res.status(404).json({ error: true, message: "Product not found" });

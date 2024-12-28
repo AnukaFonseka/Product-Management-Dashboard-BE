@@ -4,6 +4,7 @@ const { ObjectId } = require("mongodb");
 //Create New Product
 async function createProduct({
     productName,
+    productDescription,
     productCategory,
     productPrice,
     productImage
@@ -13,6 +14,7 @@ async function createProduct({
 
         const newProduct = {
             productName,
+            productDescription,
             productCategory,
             productPrice,
             productImage
